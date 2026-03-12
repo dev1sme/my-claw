@@ -2,6 +2,11 @@
 .env
 .env.*
 
+# Real sync snapshots (may contain sensitive values)
+**/*.real
+**/*.real.json
+**/*.real.yml
+
 # Safety: never commit credentials/tokens/sessions anywhere in repo
 **/credentials/**
 **/auths/**
