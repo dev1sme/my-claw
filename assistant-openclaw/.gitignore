@@ -1,0 +1,26 @@
+# Secrets / creds
+.env
+.env.*
+!.env.example
+
+# OpenClaw runtime sensitive paths
+credentials/
+auths/
+**/credentials/
+**/auths/
+
+# Sessions / logs / runtime state
+**/sessions/
+**/*.jsonl
+**/logs/
+
+# Local state
+.openclaw/
+.clawhub/
+node_modules/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

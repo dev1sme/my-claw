@@ -1,0 +1,21 @@
+# Root ignores
+.env
+.env.*
+
+# Safety: never commit credentials/tokens/sessions anywhere in repo
+**/credentials/**
+**/auths/**
+**/sessions/**
+**/*.jsonl
+**/logs/**
+
+# Local metadata
+**/.openclaw/**
+**/.clawhub/**
+**/node_modules/**
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

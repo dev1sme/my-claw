@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "210c2149-4ac6-4f1f-88e2-a68e41f49d64",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "Thời tiết Quận 7 + Nhà Bè 06:30 hằng ngày",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 6 * * *",
+        "tz": "Asia/Saigon"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Đây là nhắc việc định kỳ lúc 06:30 mỗi ngày (Asia/Saigon). Hãy cập nhật thời tiết cho TP.HCM khu vực Quận 7 và Nhà Bè. Mở đầu bằng \"Ba mẹ ơi\". Trả lời ngắn gọn bằng tiếng Việt, xưng \"con\". Nội dung gồm: nhiệt độ hiện tại, cảm giác thực tế, khả năng mưa, khung giờ mưa đáng chú ý trong ngày, khuyến nghị mang áo mưa/che nắng. Nếu dữ liệu chưa xác minh được thì ghi [Chưa xác minh] rõ ràng.",
+        "timeoutSeconds": 120
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "zalouser",
+        "to": "group:5393880010575793033",
+        "bestEffort": false
+      }
+    }
+  ]
+}

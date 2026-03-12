@@ -1,0 +1,16 @@
+# Secrets / creds
+.env
+.env.*
+!.env.example
+auths/
+logs/
+
+# Runtime / build
+bin/
+node_modules/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

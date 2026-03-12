@@ -1,0 +1,114 @@
+{
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "cliproxy": {
+        "baseUrl": "http://127.0.0.1:8317/v1",
+        "apiKey": "${MY_PROVIDER_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "gpt-5.3-codex",
+            "name": "gpt-5.3-codex (Custom Provider)",
+            "reasoning": true,
+            "input": ["text"],
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 160000,
+            "maxTokens": 32000
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": { "primary": "cliproxy/gpt-5.3-codex" },
+      "models": { "cliproxy/gpt-5.3-codex": {} },
+      "workspace": "/home/dev1sme/.openclaw/workspace-dev",
+      "compaction": { "mode": "safeguard" },
+      "thinkingDefault": "xhigh",
+      "maxConcurrent": 4,
+      "subagents": { "maxConcurrent": 8 }
+    },
+    "list": [
+      {
+        "id": "main",
+        "tools": { "profile": "full" }
+      }
+    ]
+  },
+  "tools": { "profile": "full" },
+  "messages": { "ackReactionScope": "group-mentions" },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": { "dmScope": "per-channel-peer" },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": { "enabled": true },
+        "bootstrap-extra-files": { "enabled": true },
+        "command-logger": { "enabled": true },
+        "session-memory": { "enabled": true }
+      }
+    }
+  },
+  "channels": {
+    "zalouser": {
+      "enabled": true,
+      "groupPolicy": "allowlist",
+      "groups": {
+        "5393880010575793033": { "allow": true }
+      },
+      "groupAllowFrom": [
+        "2027904756805493623",
+        "8062001735009523122"
+      ]
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "http://claw.dev1sme.cloud",
+        "https://claw.dev1sme.cloud"
+      ]
+    },
+    "auth": {
+      "mode": "password"
+    },
+    "trustedProxies": [
+      "127.0.0.1/32",
+      "::1/128"
+    ],
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": []
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "allow": ["zalouser"],
+    "load": {
+      "paths": [
+        "/home/dev1sme/.nvm/versions/node/v25.8.0/lib/node_modules/openclaw/extensions/zalouser"
+      ]
+    },
+    "entries": {
+      "zalouser": { "enabled": true }
+    }
+  }
+}
