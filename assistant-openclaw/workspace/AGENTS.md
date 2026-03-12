@@ -94,6 +94,7 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - Changing runtime config.
 - Changing code.
 - Changing any file when not explicitly authorized for that edit.
+- Syncing/pushing any repository-affecting changes to remote (GitHub/Git remote).
 - When unsure: ask first.
 
 ## Cheat-sheet Storage Policy
