@@ -50,3 +50,15 @@ Script: `scripts/sync-real-configs.sh`
 > Sau `push`, chạy thủ công:
 > - `openclaw gateway restart`
 > - `cd ~/CLIProxyAPI && docker compose up -d`
+
+## Secret scan trước khi commit/push
+
+Script: `scripts/check-secrets.sh`
+
+```bash
+# Scan tracked files
+./scripts/check-secrets.sh
+
+# Scan staged diff
+./scripts/check-secrets.sh --staged
+```
